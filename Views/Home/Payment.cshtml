@@ -1,0 +1,53 @@
+﻿@using PaymentPlaceTest.Dto
+@model ViewDto
+<title>Styled View</title>
+<!-- Include your CSS stylesheets or use inline styles here -->
+
+<style>
+   
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .field {
+        margin-bottom: 15px;
+    }
+
+    .label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .value {
+        margin-left: 10px;
+    }
+    /* Styled input textboxes */
+    .styled-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+</style>
+@using (Html.BeginForm("MakePayment", "Home", FormMethod.Post)) {
+    <div class="container">
+        <h1>Payment Details</h1>
+        <div class="field">
+            @Html.LabelFor(m => m.Email, new { @class = "label" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "styled-input" })
+        </div>
+        <div class="field">
+            @Html.LabelFor(m => m.Amount, new { @class = "label" })
+            @Html.TextBoxFor(m => m.Amount, new { @class = "styled-input" })
+        </div>
+        <!-- Add more fields as needed -->
+        <input type="submit" value="Submit" class="styled-button" />
+    </div>
+}
